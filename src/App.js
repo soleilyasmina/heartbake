@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Snack from "./components/Snack";
 import { baseURL, config } from "./services";
 import "./App.css";
 
@@ -23,7 +24,11 @@ function App() {
     <div className="App">
       <Navbar />
       <Route exact path="/">
-        <h2>It's homie time!</h2>
+        <main>
+          {snacks.map((snack) => (
+            <Snack key={snack.id} snack={snack} setToggleFetch={setToggleFetch} />
+          ))}
+        </main>
       </Route>
       <Route path="/new">
         <h2>Bake my heart :o(</h2>
