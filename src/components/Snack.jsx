@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { baseURL, config } from "../services";
 
@@ -11,7 +12,7 @@ function Snack(props) {
     await axios.delete(snackURL, config);
     // trigger the useEffect ;)
     props.setToggleFetch((curr) => !curr);
-  }
+  };
 
   return (
     <article>
@@ -19,8 +20,11 @@ function Snack(props) {
       <p>{description}</p>
       <p>{rating}</p>
       <button onClick={deleteSnack}>Delete Snack!</button>
+      <Link to={`/edit/${props.snack.id}`}>
+        <button>Edit Snack!</button>
+      </Link>
     </article>
-  )
+  );
 }
 
 export default Snack;
