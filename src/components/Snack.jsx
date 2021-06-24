@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Rating from "./Rating";
 import { baseURL, config } from "../services";
 
 function Snack(props) {
@@ -18,7 +19,7 @@ function Snack(props) {
     <article>
       <h3>{name}</h3>
       <p>{description}</p>
-      <p>{rating}</p>
+      <Rating rating={rating} />
       <button onClick={deleteSnack}>Delete Snack!</button>
       <Link to={`/edit/${props.snack.id}`}>
         <button>Edit Snack!</button>

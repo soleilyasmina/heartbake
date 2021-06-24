@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { baseURL, config } from "../services";
 
 function Form(props) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState(1);
+  const history = useHistory();
   const params = useParams();
 
   useEffect(() => {
@@ -40,6 +41,10 @@ function Form(props) {
     }
     // trigger our useEffect (?)
     props.setToggleFetch((curr) => !curr);
+    // send the user home when they're done!
+    setTimeout(() => {
+      history.push("/");
+    }, 1000);
   }
 
   return (
