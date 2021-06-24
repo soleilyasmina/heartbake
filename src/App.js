@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Route } from "react-router-dom";
+import Form from "./components/Form";
 import Navbar from "./components/Navbar";
 import Snack from "./components/Snack";
 import { baseURL, config } from "./services";
@@ -31,7 +32,7 @@ function App() {
         </main>
       </Route>
       <Route path="/new">
-        <h2>Bake my heart :o(</h2>
+        <Form setToggleFetch={setToggleFetch} />
       </Route>
       <Route path="/edit/:id">
         <h2>Please edit me!!</h2>
